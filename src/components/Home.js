@@ -8,7 +8,7 @@ const Home = () => {
     return (
         <div className="card-container">
             {cars.map((car, idx) => (
-                <Card key={idx} className="card">
+                <Card key={idx} className="card" raised>
                     <CardContent className="text-gray">
                         <span>{car.Name.toUpperCase()}</span>
                         <ul>
