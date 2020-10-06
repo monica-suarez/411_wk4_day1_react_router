@@ -29,7 +29,7 @@ const Car = (props) => {
                 <Chip label={`ID: ${id}`} />
                 <Chip label={`Name: ${carName}`}/>
                 <Chip label={`Year: ${car.Year}`}/>
-                <Chip label={`Country of Origin: ${car.Origin}`}/>
+                <Chip label={`Place of Origin: ${car.Origin}`}/>
                 <Chip label={`MPG: ${car.Miles_per_Gallon}`}/>
                 <Chip label={`Cylinders: ${car.Cylinders}`}/>
                 <Chip label={`Horsepower: ${car.Horsepower}`}/>
