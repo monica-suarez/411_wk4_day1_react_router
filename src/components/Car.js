@@ -1,12 +1,44 @@
 import React from 'react'
 import cars from '../cars.json'
-// import material ui components here //
+import { Container, Paper, Chip } from '@material-ui/core'
+import { makeStyles } from '@material-ui/core/styles';
 // Container, Paper, Chip //
 
+const useStyles = makeStyles((theme) => ({
+    root: {
+      display: 'flex',
+      flexWrap: 'wrap',
+      '& > *': {
+        margin: theme.spacing(5),
+        padding: theme.spacing(2),
+        width: theme.spacing(50),
+        maxHeight: theme.spacing(50)
+      },
+    },
+  }));
+
 const Car = (props) => {
+    const classes = useStyles();
+    let id = props.match.params.id
+    const car = cars.find(car => car.id === Number(id))
+    let carName = car.Name.toUpperCase();
     return (
-        <h1>A specific car</h1>
-    )
+        <Container maxWidth='md' className={classes.root}>
+            <Paper  square elevation={3}>
+                <h1>{carName}</h1>
+                <Chip label={`ID: ${id}`} />
+                <Chip label={`Name: ${carName}`}/>
+                <Chip label={`Year: ${car.Year}`}/>
+                <Chip label={`Country of Origin: ${car.Origin}`}/>
+                <Chip label={`MPG: ${car.Miles_per_Gallon}`}/>
+                <Chip label={`Cylinders: ${car.Cylinders}`}/>
+                <Chip label={`Horsepower: ${car.Horsepower}`}/>
+                <Chip label={`Weight(lbs): ${car.Weight_in_lbs}`}/>
+                <Chip label={`Acceleration: ${car.Acceleration}`}/> 
+                <Chip label={`Displacement: ${car.Displacement}`}/>              
+            </Paper>
+        </Container>
+     )
 }
 
 export default Car
