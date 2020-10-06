@@ -2,17 +2,17 @@ import React from 'react'
 import cars from '../cars.json'
 import { Container, Paper, Chip } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles';
-// Container, Paper, Chip //
+
 
 const useStyles = makeStyles((theme) => ({
     root: {
       display: 'flex',
       flexWrap: 'wrap',
       '& > *': {
-        margin: theme.spacing(5),
+        margin: theme.spacing(5, 10, 0, 20),
         padding: theme.spacing(2),
         width: theme.spacing(50),
-        maxHeight: theme.spacing(50)
+        maxHeight: theme.spacing(100)
       },
     },
   }));
@@ -23,7 +23,7 @@ const Car = (props) => {
     const car = cars.find(car => car.id === Number(id))
     let carName = car.Name.toUpperCase();
     return (
-        <Container maxWidth='md' className={classes.root}>
+        <Container maxWidth='md' className={classes.root} id='container'>
             <Paper  square elevation={3}>
                 <h1>{carName}</h1>
                 <Chip label={`ID: ${id}`} />
